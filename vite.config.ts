@@ -3,7 +3,7 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { VitePWA } from 'vite-plugin-pwa';
 
-const base = process.env.GITHUB_ACTIONS ? '/Korean/' : '/';
+const base = process.env.GITHUB_ACTIONS ? '/NABI/' : '/';
 
 export default defineConfig({
   base,
