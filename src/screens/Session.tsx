@@ -7,10 +7,11 @@ import { buildInterleave } from '../lib/interleave';
 import { sfx } from '../lib/sfx';
 import { LESSONS, lessonById } from '../content/curriculum';
 import type { Lesson } from '../content/types';
-import { Mascot, stageForMonth } from '../components/Mascot';
+import { Evolution, Mascot, stageForMonth } from '../components/Mascot';
 import { ReviewQueue } from '../components/ReviewQueue';
 import { LessonPlayer } from '../components/LessonPlayer';
 import { Confetti } from '../components/Confetti';
+import { PASS, Setback } from '../components/Setback';
 import { Close } from '../components/Icons';
 
 type Phase = 'intro' | 'review' | 'lesson' | 'interleave' | 'done';
@@ -157,12 +158,13 @@ function Done({ stageLesson, score }: { stageLesson?: Lesson; score: number | nu
   const nextLesson = idx >= 0 ? LESSONS[idx + 1] : undefined;
   const evolves = stageLesson && nextLesson && stageForMonth(stageLesson.month) !== stageForMonth(nextLesson.month);
   const stage = stageForMonth(evolves && nextLesson ? nextLesson.month : month);
+  const missed = !evolves && score !== null && score < PASS;
   return (
     <div className="session-done">
-      <Confetti />
-      <Mascot stage={stage} mood="happy" size={150} className={evolves ? 'evolve' : ''} />
+      {!missed && <Confetti />}
+      {evolves && stage !== 'caterpillar' ? <Evolution to={stage} size={150} /> : missed ? <Setback stage={stage} size={150} /> : <Mascot stage={stage} mood="happy" size={150} />}
       <h2>{evolves ? 'Nabi a évolué !' : 'Séance terminée !'}</h2>
-      {score !== null && <p className="done-score">Leçon réussie à <strong>{Math.round(score * 100)} %</strong></p>}
+      {score !== null && <p className="done-score">{missed ? 'Leçon terminée' : 'Leçon réussie'} à <strong>{Math.round(score * 100)} %</strong></p>}
       <p>{stageLesson ? 'Nouvelle leçon demain. Les cartes du jour reviendront au bon moment.' : 'Bravo pour cette séance de révision.'}</p>
       <button type="button" className="btn btn-primary btn-block btn-big" onClick={() => go('home')}>Retour à l’accueil</button>
     </div>

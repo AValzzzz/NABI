@@ -14,7 +14,7 @@ const STAGES: { stage: Stage; months: string; label: string }[] = [
 
 export const MILESTONES = [7, 30, 60, 100, 180, 365];
 
-const BADGES = import.meta.glob('../assets/sprites/badge-*.png', { eager: true, import: 'default' }) as Record<string, string>;
+const BADGES = import.meta.glob('../assets/sprites/badge-*.webp', { eager: true, import: 'default' }) as Record<string, string>;
 
 export function Progress() {
   const app = useApp();
@@ -65,7 +65,7 @@ export function Progress() {
         <div className="badges">
           {MILESTONES.map((m) => {
             const got = days >= m;
-            const img = BADGES[`../assets/sprites/badge-${m}.png`];
+            const img = BADGES[`../assets/sprites/badge-${m}.webp`];
             return (
               <div key={m} className={`badge-item ${got ? 'got' : ''}`}>
                 {img ? <img src={img} alt="" /> : <span className="badge-medal">{m}</span>}

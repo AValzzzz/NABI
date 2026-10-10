@@ -5,6 +5,7 @@ import { Header } from '../components/Layout';
 import { Mascot, stageForMonth } from '../components/Mascot';
 import { ReviewQueue, type ReviewStats } from '../components/ReviewQueue';
 import { Confetti } from '../components/Confetti';
+import { PASS, Setback } from '../components/Setback';
 
 export function Review() {
   const app = useApp();
@@ -12,6 +13,7 @@ export function Review() {
   const [running, setRunning] = useState(false);
   const [due, setDue] = useState(() => app.cards.filter((c) => c.due <= app.day));
   const [result, setResult] = useState<ReviewStats | null>(null);
+  const missed = !!result && result.reviewed > 0 && result.correct / result.reviewed < PASS;
   const next = app.cards.filter((c) => c.due > app.day).map((c) => c.due).sort()[0];
 
   const finish = (s: ReviewStats) => {
@@ -34,7 +36,7 @@ export function Review() {
     <div className="screen">
       <Header title="Révisions" subtitle="Rappel actif · répétition espacée" />
       <div className="pad center-col">
-        {result && result.reviewed > 0 && <Confetti count={24} />}
+        {result && result.reviewed > 0 && !missed && <Confetti count={24} />}
         {app.dueCount > 0 ? (
           <>
             <Mascot stage={stage} mood="thinking" size={120} />
@@ -46,8 +48,8 @@ export function Review() {
           </>
         ) : (
           <>
-            <Mascot stage={stage} mood={result ? 'happy' : 'sleep'} size={120} />
-            {result && result.reviewed > 0 && <p><strong>{result.correct}/{result.reviewed}</strong> retrouvées. Bien joué !</p>}
+            {missed ? <Setback stage={stage} size={120} /> : <Mascot stage={stage} mood={result ? 'happy' : 'sleep'} size={120} />}
+            {result && result.reviewed > 0 && <p><strong>{result.correct}/{result.reviewed}</strong> retrouvées.{missed ? '' : ' Bien joué !'}</p>}
             <p>{app.cards.length ? 'Rien à réviser pour le moment.' : 'Tes cartes apparaîtront ici après ta première leçon.'}</p>
             {next && <p className="muted">Prochaine révision : {formatDayFr(next)}</p>}
           </>

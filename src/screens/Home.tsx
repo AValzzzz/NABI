@@ -4,12 +4,15 @@ import { go } from '../lib/router';
 import { LESSONS, MONTHS } from '../content/curriculum';
 import { Header } from '../components/Layout';
 import { Mascot, stageForMonth } from '../components/Mascot';
+import { streak } from '../lib/dates';
+import flame from '../assets/sprites/flame.webp';
 
 export function Home() {
   const app = useApp();
   const { today, dueCount, day, studyDays } = app;
   const stage = stageForMonth(app.month);
   const doneToday = studyDays.includes(day);
+  const days = streak(studyDays, day);
   const [showLater, setShowLater] = useState(false);
 
   const message = !LESSONS.length
@@ -31,6 +34,7 @@ export function Home() {
         <div className="today-body">
           <p className="bubble-say">{doneToday && today.state !== 'available' ? 'Séance terminée pour aujourd’hui. Nabi fait la sieste… à demain !' : message}</p>
           <div className="today-stats">
+            {days > 0 && <span className={`streak ${doneToday ? '' : 'pending'}`} title={doneToday ? 'Série en cours' : 'Fais ta séance pour garder ta série'}><img src={flame} alt="" /><b>{days}</b> j</span>}
             <span><b>{dueCount}</b> à réviser</span>
             <span><b>{Object.keys(app.progress).length}</b>/{LESSONS.length || '—'} leçons</span>
           </div>

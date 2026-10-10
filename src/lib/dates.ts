@@ -26,3 +26,14 @@ export function formatDayFr(day: string): string {
   const [y, m, d] = day.split('-').map(Number);
   return new Date(y, m - 1, d).toLocaleDateString('fr-FR', { weekday: 'long', day: 'numeric', month: 'long' });
 }
+
+export function streak(studyDays: string[], day: string): number {
+  const set = new Set(studyDays);
+  let d = set.has(day) ? day : addDays(day, -1);
+  let n = 0;
+  while (set.has(d)) {
+    n++;
+    d = addDays(d, -1);
+  }
+  return n;
+}

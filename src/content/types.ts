@@ -12,7 +12,7 @@ export interface CardSeed {
 
 export type Role = 'topic' | 'subject' | 'object' | 'verb' | 'place' | 'time' | 'adverb' | 'other';
 
-export type MascotMood = 'idle' | 'happy' | 'thinking' | 'encourage' | 'sleep';
+export type MascotMood = 'idle' | 'happy' | 'thinking' | 'encourage' | 'sad' | 'sleep';
 
 export type Block =
   | { type: 'title'; text: string }

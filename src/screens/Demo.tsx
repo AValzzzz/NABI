@@ -6,6 +6,7 @@ import { TopBar } from '../components/Layout';
 import { LessonPlayer } from '../components/LessonPlayer';
 import { Mascot, stageForMonth } from '../components/Mascot';
 import { Confetti } from '../components/Confetti';
+import { PASS, Setback } from '../components/Setback';
 import { sfx } from '../lib/sfx';
 
 export function Demo() {
@@ -20,8 +21,8 @@ export function Demo() {
         <LessonPlayer key={run} steps={DEMO_LESSON.steps} stage={stage} onComplete={(s) => { sfx('complete'); setScore(s); }} />
       ) : (
         <div className="session-done">
-          <Confetti />
-          <Mascot stage={stage} mood="happy" size={140} />
+          {score >= PASS && <Confetti />}
+          {score < PASS ? <Setback key={run} stage={stage} /> : <Mascot stage={stage} mood="happy" size={140} />}
           <h2>Démo terminée</h2>
           <p>Score : {Math.round(score * 100)} %</p>
           <button type="button" className="btn btn-secondary btn-block" onClick={() => { setScore(null); setRun((r) => r + 1); }}>Recommencer</button>
