@@ -150,7 +150,7 @@ const day62: Lesson = {
       kind: 'learn',
       blocks: [
         { type: 'title', text: 'La bulle de pensée 💭' },
-        { type: 'tip', text: '[[어제는 면을 배웠어요.|t:hier, on a appris 면]] Aujourd’hui, un petit mot magique pour faire des **vœux**.', mood: 'happy' },
+        { type: 'tip', text: '[[어제는 면을 배웠어요.|t:hier, on a appris 면]] Aujourd’hui, une tournure pour exprimer un **souhait**.', mood: 'happy' },
         { type: 'text', text: 'Prends une condition [[면|p:if]] et ajoute **좋겠어요** (« ce serait bien ») : « ce serait bien **si**… », donc « **j’aimerais que**… ».' },
         { type: 'breakdown', segments: [
           { ko: '내일', role: 'time', gloss: 'demain' },

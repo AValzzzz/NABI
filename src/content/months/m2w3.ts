@@ -178,7 +178,7 @@ const day32: Lesson = {
       kind: 'learn',
       blocks: [
         { type: 'title', text: 'Ensemble : 같이' },
-        { type: 'text', text: 'À la récréation, il faut savoir **proposer** un jeu. Premier mot magique : [[같이|t:ensemble]].' },
+        { type: 'text', text: 'À la récréation, il faut savoir **proposer** un jeu. Premier mot utile : [[같이|t:ensemble]].' },
         { type: 'liaison', items: [
           { written: '같이', spoken: '가치', fr: 'ㅌ + 이 → 치 : on l’écrit 같이, on dit [가치]' },
         ] },

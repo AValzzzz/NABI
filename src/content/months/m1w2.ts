@@ -11,8 +11,8 @@ const day6: Lesson = {
   cards: [
     letter('c-k', 'ㅋ', 'k', '« k » avec un souffle d’air', '[[ㄱ|r:g/k]] + un trait = + du souffle.'),
     letter('c-t', 'ㅌ', 't', '« t » avec un souffle d’air', '[[ㄷ|r:d/t]] + un trait au milieu.'),
-    letter('c-p', 'ㅍ', 'p', '« p » avec un souffle d’air', 'Deux piliers entre deux traits.'),
-    letter('c-h', 'ㅎ', 'h', '« h » soufflé, comme pour réchauffer ses mains', 'Un chapeau sur une tête ronde.'),
+    letter('c-p', 'ㅍ', 'p', '« p » avec un souffle d’air', 'Dérivée de [[ㅂ|r:b/p]] : mêmes lèvres, avec un souffle.'),
+    letter('c-h', 'ㅎ', 'h', '« h » soufflé, comme pour réchauffer ses mains', '[[ㅇ|r:ng]] + des traits au-dessus : son de gorge, soufflé.'),
     letter('c-kk', 'ㄲ', 'kk', '« k » tendu, sans souffle', 'Deux [[ㄱ|r:g/k]] : la gorge se serre.'),
     letter('c-tt', 'ㄸ', 'tt', '« t » tendu, sans souffle', 'Deux [[ㄷ|r:d/t]] : la gorge se serre.'),
     letter('c-pp', 'ㅃ', 'pp', '« p » tendu, sans souffle', 'Deux [[ㅂ|r:b/p]] : les lèvres se serrent.'),
@@ -31,9 +31,9 @@ const day6: Lesson = {
         { type: 'letters', items: [
           { char: 'ㅋ', roman: 'k', mnemonic: 'ㄱ + un trait : « k » soufflé.' },
           { char: 'ㅌ', roman: 't', mnemonic: 'ㄷ + un trait : « t » soufflé.' },
-          { char: 'ㅍ', roman: 'p', mnemonic: 'Deux piliers : « p » soufflé.' },
+          { char: 'ㅍ', roman: 'p', mnemonic: 'Dérivée de ㅂ : « p » soufflé.' },
           { char: 'ㅊ', roman: 'ch', mnemonic: 'ㅈ + un trait : « tch » soufflé.' },
-          { char: 'ㅎ', roman: 'h', mnemonic: 'Un chapeau sur une tête : « h » soufflé.' },
+          { char: 'ㅎ', roman: 'h', mnemonic: 'ㅇ + des traits : « h » soufflé.' },
         ] },
         { type: 'tip', text: 'En français, on ne prononce jamais le « h ». En coréen, si ! Souffle comme pour réchauffer tes mains : [[하|r:ha]].', mood: 'thinking' },
       ],
@@ -276,7 +276,7 @@ const day8: Lesson = {
       kind: 'learn',
       blocks: [
         { type: 'title', text: 'Les voyelles composées' },
-        { type: 'text', text: 'On assemble deux voyelles comme des Lego. [[ㅗ|r:o]] va avec le côté « a » ([[ㅏ|r:a]] [[ㅐ|r:ae]]), [[ㅜ|r:u]] avec le côté « eo » ([[ㅓ|r:eo]] [[ㅔ|r:e]]) :' },
+        { type: 'text', text: 'On assemble deux voyelles. [[ㅗ|r:o]] va avec le côté « a » ([[ㅏ|r:a]] [[ㅐ|r:ae]]), [[ㅜ|r:u]] avec le côté « eo » ([[ㅓ|r:eo]] [[ㅔ|r:e]]) :' },
         { type: 'compose', items: [
           { parts: ['ㅗ', 'ㅏ'], result: 'ㅘ', roman: 'wa' },
           { parts: ['ㅜ', 'ㅓ'], result: 'ㅝ', roman: 'wo' },

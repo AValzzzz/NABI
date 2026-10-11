@@ -15,9 +15,9 @@ export const DEMO_LESSON: Lesson = {
         { type: 'title', text: 'Les blocs syllabiques' },
         { type: 'text', text: 'Le coréen s’écrit en **blocs** : une consonne + une voyelle (+ parfois une consonne finale). Touche un mot pour l’écouter : [[안녕하세요|t:bonjour]].' },
         { type: 'letters', items: [
-          { char: 'ㄱ', roman: 'g/k', mnemonic: 'Une potence, la langue touche le fond du palais.' },
+          { char: 'ㄱ', roman: 'g/k', mnemonic: 'Le dos de la langue touche le fond du palais.' },
           { char: 'ㄴ', roman: 'n', mnemonic: 'La langue contre les dents du haut.' },
-          { char: 'ㅁ', roman: 'm', mnemonic: 'Une bouche fermée, un carré.' },
+          { char: 'ㅁ', roman: 'm', mnemonic: 'Les lèvres fermées.' },
         ] },
         { type: 'tip', text: 'Les explications de grammaire s’ouvrent en touchant une particule : [[는|p:topic]], [[가|p:subject]], [[를|p:object]].', mood: 'thinking' },
       ],

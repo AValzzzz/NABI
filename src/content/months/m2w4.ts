@@ -253,7 +253,7 @@ const day38: Lesson = {
     {
       kind: 'learn',
       blocks: [
-        { type: 'title', text: 'Le mot magique : 주세요' },
+        { type: 'title', text: 'Demander poliment : 주세요' },
         { type: 'text', text: 'Tu connais [[주세요]] depuis la première semaine : [[물 주세요!|t:de l’eau, s’il vous plaît]] = « **donnez**-moi ». Collé à un verbe, il veut dire « faites-le **pour moi**, s’il vous plaît ».' },
         { type: 'text', text: 'Et la règle… c’est encore le truc de Nabi : le **présent** sans [[요]] + **주세요** !' },
         { type: 'table', head: ['Présent', '→', 'S’il vous plaît…'], rows: [

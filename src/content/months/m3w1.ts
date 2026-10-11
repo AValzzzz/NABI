@@ -145,7 +145,7 @@ const day42: Lesson = {
     {
       kind: 'learn',
       blocks: [
-        { type: 'title', text: 'Le schéma magique ✨' },
+        { type: 'title', text: 'Le schéma de base' },
         { type: 'text', text: '**ㄷ + voyelle → ㄹ**. Regarde ce qui vient après le radical [[듣]] :' },
         { type: 'table', head: ['Après [[듣]]…', 'Forme', ''], rows: [
           ['🔴 une voyelle (어요)', '[[들어요]]', 'j’écoute'],
