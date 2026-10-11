@@ -22,6 +22,7 @@ export type Block =
   | { type: 'breakdown'; segments: { ko: string; role: Role; gloss: string; particle?: { ko: string; key: string } }[]; translation: string; note?: string }
   | { type: 'dialog'; lines: { who: string; ko: string; fr?: string }[] }
   | { type: 'compose'; items: { parts: string[]; result: string; roman?: string }[] }
+  | { type: 'syllables'; items: { example: string; label?: string }[] }
   | { type: 'strokes'; chars: string[] }
   | { type: 'liaison'; items: { written: string; spoken: string; fr?: string }[] }
   | { type: 'table'; head: string[]; rows: string[][] }

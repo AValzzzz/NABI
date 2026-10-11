@@ -40,12 +40,14 @@ export function voicesReady(): Promise<SpeechSynthesisVoice[]> {
 export function speak(text: string, opts: { rate?: number; onEnd?: () => void } = {}) {
   const s = synth();
   if (!s || !text) return;
-  s.cancel(); 
-  const u = new SpeechSynthesisUtterance(soundOf(text));
+  s.cancel();
+  const said = soundOf(text);
+  const lone = /^[가-힣]$/.test(said);
+  const u = new SpeechSynthesisUtterance(lone ? `${said}. ${said}.` : said);
   u.lang = 'ko-KR';
   const voice = pickVoice();
   if (voice) u.voice = voice;
-  u.rate = opts.rate ?? rate;
+  u.rate = lone ? Math.min(opts.rate ?? rate, 0.6) : opts.rate ?? rate;
   if (opts.onEnd) u.onend = u.onerror = () => opts.onEnd?.();
   s.speak(u);
 }

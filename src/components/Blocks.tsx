@@ -61,6 +61,12 @@ export function BlockView({ block, stage }: { block: Block; stage: Stage }) {
           ))}
         </div>
       );
+    case 'syllables':
+      return (
+        <div className="b-syllables">
+          {block.items.map((it) => <SyllableShape key={it.example} {...it} />)}
+        </div>
+      );
     case 'strokes':
       return (
         <div className="b-strokes">
@@ -188,5 +194,33 @@ function Dialog({ block }: { block: Extract<Block, { type: 'dialog' }> }) {
         </button>
       )}
     </div>
+  );
+}
+
+const STANDING = 'ㅏㅐㅑㅒㅓㅔㅕㅖㅣ';
+
+function SyllableShape({ example, label }: { example: string; label?: string }) {
+  const p = decompose(example);
+  if (!p) return null;
+  const side = STANDING.includes(p.medial);
+  const cells = [
+    { area: 'c', jamo: p.initial, cls: 'cons', name: 'consonne' },
+    { area: 'v', jamo: p.medial, cls: 'vowel', name: 'voyelle' },
+    ...(p.final ? [{ area: 'f', jamo: p.final, cls: 'cons final', name: 'finale' }] : []),
+  ];
+  const areas = side ? (p.final ? '"c v" "f f"' : '"c v"') : p.final ? '"c" "v" "f"' : '"c" "v"';
+  return (
+    <button type="button" className="syl-card" onClick={() => speak(example)}>
+      <div className={`syl-grid ${side ? 'side' : 'stack'}`} style={{ gridTemplateAreas: areas }}>
+        {cells.map((c) => (
+          <span key={c.area} className={`syl-cell ${c.cls}`} style={{ gridArea: c.area }}>
+            <b lang="ko">{c.jamo}</b>
+            <small>{c.name}</small>
+          </span>
+        ))}
+      </div>
+      <span className="syl-eq">= <span lang="ko">{example}</span></span>
+      {label && <RichText text={label} className="syl-label" />}
+    </button>
   );
 }

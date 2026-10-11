@@ -70,6 +70,13 @@ const day1: Lesson = {
       ['ㅇ', '⭕ Un rond, la gorge'],
       ['ㄹ', '〰️ Un zigzag'],
     ] } },
+    {
+      kind: 'learn',
+      blocks: [
+        { type: 'title', text: 'À l’oreille !' },
+        { type: 'tip', text: 'Tu vas entendre une consonne **avec une voyelle** (souvent un « a »). Ne t’occupe pas de la voyelle, tu la découvriras demain : écoute seulement **le tout début** du son.', mood: 'encourage' },
+      ],
+    },
     { kind: 'practice', exercise: { type: 'mcq', prompt: 'Écoute : par quelle consonne commence ce son ?', audio: '나', choices: ['ㄴ', 'ㅁ', 'ㄹ', 'ㅇ'], answer: 0 } },
     { kind: 'practice', exercise: { type: 'mcq', prompt: 'Écoute : par quelle consonne commence ce son ?', audio: '마', choices: ['ㅁ', 'ㅂ', 'ㄴ', 'ㅅ'], answer: 0 } },
     {
@@ -96,6 +103,7 @@ const day1: Lesson = {
       kind: 'learn',
       blocks: [
         { type: 'title', text: 'Trois phrases de survie' },
+        { type: 'tip', text: 'Ces phrases sont pleines de voyelles et de lettres que tu ne connais **pas encore** : c’est normal ! Ne cherche pas à tout lire. Apprends-les **comme une mélodie** et amuse-toi à repérer les consonnes du jour : [[ㄱ|r:g/k]] [[ㄴ|r:n]] [[ㅁ|r:m]] [[ㅅ|r:s]]…', mood: 'encourage' },
         { type: 'text', text: '[[안녕하세요|t:bonjour]] — littéralement « êtes-vous en paix ? ». On l’accompagne d’une petite inclinaison de la tête 🙇.' },
         { type: 'text', text: '[[감사합니다|t:merci]] — le merci poli, valable partout.' },
         { type: 'text', text: '[[화장실이 어디예요?|t:où sont les toilettes ?]] — la phrase qui sauve !' },
@@ -107,7 +115,7 @@ const day1: Lesson = {
     },
     { kind: 'practice', exercise: { type: 'listen', audio: '감사합니다', choices: ['감사합니다', '안녕하세요', '화장실이 어디예요?'], answer: 0 } },
     { kind: 'practice', exercise: { type: 'listen', audio: '화장실이 어디예요?', choices: ['화장실이 어디예요?', '감사합니다', '안녕하세요'], answer: 0 } },
-    { kind: 'practice', exercise: { type: 'sort', prompt: 'Langage poli ou familier ?', buckets: ['존댓말', '반말'], items: [
+    { kind: 'practice', exercise: { type: 'sort', prompt: 'Langage **poli** ([[존댓말]]) ou **familier** ([[반말]]) ?', buckets: ['존댓말 · poli', '반말 · familier'], items: [
       { text: '안녕하세요', bucket: 0 },
       { text: '안녕', bucket: 1 },
       { text: '감사합니다', bucket: 0 },
@@ -186,7 +194,22 @@ const day2: Lesson = {
           { parts: ['ㅅ', 'ㅡ'], result: '스', roman: 'seu' },
           { parts: ['ㅈ', 'ㅣ'], result: '지', roman: 'ji' },
         ] },
-        { type: 'text', text: '**Où va la consonne ?** Avec une voyelle debout ([[ㅏ|r:a]] [[ㅓ|r:eo]] [[ㅣ|r:i]]), elle se met **à gauche** : [[가|r:ga]]. Avec une voyelle couchée ([[ㅗ|r:o]] [[ㅜ|r:u]] [[ㅡ|r:eu]]), elle se met **au-dessus** : [[모|r:mo]].' },
+      ],
+    },
+    {
+      kind: 'learn',
+      blocks: [
+        { type: 'title', text: 'Où va la consonne ?' },
+        { type: 'text', text: 'Tout dépend de la **forme de la voyelle**. Regarde son grand trait :' },
+        { type: 'syllables', items: [
+          { example: '가', label: 'Voyelle **debout** → consonne **à gauche**' },
+          { example: '모', label: 'Voyelle **couchée** → consonne **au-dessus**' },
+        ] },
+        { type: 'table', head: ['Voyelle', 'Consonne', 'Exemples'], rows: [
+          ['**debout** │ [[ㅏ|r:a]] [[ㅓ|r:eo]] [[ㅣ|r:i]]', '**à gauche**', '[[가|r:ga]] [[너|r:neo]] [[지|r:ji]]'],
+          ['**couchée** ─ [[ㅗ|r:o]] [[ㅜ|r:u]] [[ㅡ|r:eu]]', '**au-dessus**', '[[모|r:mo]] [[루|r:ru]] [[스|r:seu]]'],
+        ] },
+        { type: 'tip', text: 'Un bloc se lit toujours **de gauche à droite, puis de haut en bas** : la consonne vient donc toujours en premier. Demain, tu verras qu’on peut ajouter un 3e étage en dessous.', mood: 'thinking' },
       ],
     },
     {
@@ -309,6 +332,10 @@ const day3: Lesson = {
           { parts: ['ㅁ', 'ㅜ', 'ㄹ'], result: '물', roman: 'mul' },
           { parts: ['ㄱ', 'ㅗ', 'ㅇ'], result: '공', roman: 'gong' },
         ] },
+        { type: 'syllables', items: [
+          { example: '감', label: 'debout + finale' },
+          { example: '물', label: 'couchée + finale' },
+        ] },
         { type: 'text', text: '[[감|r:gam]] comme dans [[감사합니다]], [[안|r:an]] comme dans [[안녕하세요]].' },
         { type: 'table', head: ['En finale', 'Se prononce'], rows: [
           ['[[ㄴ|r:n]] [[ㅁ|r:m]] [[ㄹ|r:l]]', 'comme en français, bien net'],
@@ -361,7 +388,7 @@ const day3: Lesson = {
     { type: 'mcq', prompt: 'Comment dit-on « Je suis Sarah » ?', choices: ['저는 사라입니다', '사라는 저입니다', '저는 사라감사합니다'], answer: 0 },
     { type: 'type', prompt: 'Écris le mot que tu entends :', audio: '바다', answer: '바다' },
     { type: 'mcq', prompt: '[[이게 뭐예요?]] 💧', choices: ['물', '모자', '나무', '책'], answer: 0 },
-    { type: 'sort', prompt: 'Langage poli ou familier ?', buckets: ['존댓말', '반말'], items: [
+    { type: 'sort', prompt: 'Langage **poli** ([[존댓말]]) ou **familier** ([[반말]]) ?', buckets: ['존댓말 · poli', '반말 · familier'], items: [
       { text: '감사합니다', bucket: 0 }, { text: '고마워', bucket: 1 }, { text: '저는 루이입니다', bucket: 0 }, { text: '안녕', bucket: 1 },
     ] },
   ],
